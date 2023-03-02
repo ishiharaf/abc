@@ -11,12 +11,13 @@
 		"abc", "notation", "music"
 	],
 	"engines": {
-		"vscode": "^1.76.0"
+		"vscode": "^1.74.2"
 	},
+	"main": "src/extension.js",
 	"activationEvents": [
+		"onCommand:abc.helloWorld",
 		"onLanguage:abc"
 	],
-	"main": "src/extension.js",
 	"contributes": {
 		"commands": [
 			{
