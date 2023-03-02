@@ -1,0 +1,36 @@
+@font-face {
+	font-family: "IcoMoon";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("icons.woff") format("woff");
+}
+
+:root {
+	--text: hsl(0, 0, 98%);
+}
+
+body.vscode-light {
+	--text: hsl(0, 0, 10%);
+}
+
+body.vscode-dark {
+	--text: hsl(0, 0, 98%);
+}
+
+body.vscode-high-contrast {
+	--text: hsl(0, 100%, 60);
+}
+
+abc {
+	display: none;
+}
+
+button {
+    color: var(--text);
+	font-family: "IcoMoon";
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+	background: none;
+    border: none;
+}
