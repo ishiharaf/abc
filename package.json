@@ -15,14 +15,14 @@
 	},
 	"main": "src/extension.js",
 	"activationEvents": [
-		"onCommand:abc.helloWorld",
+		"onCommand:abc.play",
 		"onLanguage:abc"
 	],
 	"contributes": {
 		"commands": [
 			{
-				"command": "abc.helloWorld",
-				"title": "Hello World"
+				"command": "abc.showPreview",
+				"title": "ABC: Show Preview"
 			}
 		],
 		"languages": [
