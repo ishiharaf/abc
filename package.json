@@ -1,21 +1,38 @@
 {
 	"name": "abc",
-	"displayName": "abc",
+	"displayName": "ABC Tools",
 	"description": "ABC Tools for VS Code",
 	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.76.0"
-	},
+	"license": "SEE LICENSE IN LICENSE.md",
 	"categories": [
 		"Other"
 	],
-	"activationEvents": [],
+	"keywords": [
+		"abc", "notation", "music"
+	],
+	"engines": {
+		"vscode": "^1.76.0"
+	},
+	"activationEvents": [
+		"onLanguage:abc"
+	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "abc.helloWorld",
 				"title": "Hello World"
+			}
+		],
+		"languages": [
+			{
+				"id": "abc",
+				"aliases": [
+					"ABC"
+				],
+				"extensions": [
+					".abc"
+				]
 			}
 		]
 	}
