@@ -2,7 +2,7 @@
 	"name": "abc-tools",
 	"displayName": "ABC Tools",
 	"description": "Preview and play ABC files in Visual Studio Code",
-	"version": "0.1.0",
+	"version": "0.2.1",
 	"license": "SEE LICENSE IN LICENSE.md",
 	"publisher": "ishiharaf",
 	"author": {
@@ -17,7 +17,9 @@
 		"Other"
 	],
 	"keywords": [
-		"abc", "notation", "music"
+		"abc",
+		"notation",
+		"music"
 	],
 	"engines": {
 		"vscode": "^1.74.2"
