@@ -4,11 +4,12 @@
 		{ "include": "#header" },
 		{ "include": "#directive" },
 		{ "include": "#comment" },
+		{ "include": "#double-quoted-string" },
+		{ "include": "#decoration" },
 		{ "include": "#words" },
 		{ "include": "#numbers" },
 		{ "include": "#ties" },
 		{ "include": "#chord" },
-		{ "include": "#double-quoted-string" },
 		{ "include": "#bars" }
 	],
 	"repository": {
@@ -80,6 +81,21 @@
 				}
 			},
 			"name": "string.quoted.double.abc"
+		},
+		"decoration": {
+			"begin": "!",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.abc"
+				}
+			},
+			"end": "!",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.abc"
+				}
+			},
+			"name": "string.quoted.other.abc"
 		},
 		"bars": {
 			"patterns": [
