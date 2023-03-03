@@ -1,9 +1,18 @@
 {
-	"name": "abc",
+	"name": "abc-tools",
 	"displayName": "ABC Tools",
-	"description": "ABC Tools for VS Code",
+	"description": "Preview and play ABC files in Visual Studio Code",
 	"version": "0.1.0",
 	"license": "SEE LICENSE IN LICENSE.md",
+	"publisher": "ishiharaf",
+	"author": {
+		"name": "Ishihara Felipe"
+	},
+	"icon": "media/logo.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ishiharaf/abc"
+	},
 	"categories": [
 		"Other"
 	],
