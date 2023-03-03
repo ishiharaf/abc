@@ -1,11 +1,15 @@
 # Changelog
 
 ## Unreleased
-- Add play media icon to Editor panel
+- Sync selection in preview panel to editor
 
-## 0.0.2 - 2023/03/03
+## 0.2.1 - 2023/03/03
+- Fix README
+- Fix CHANGELOG
+
+## 0.2.0 - 2023/03/03
 - Initial release
 
-## 0.0.1 - 2023/03/02
+## 0.1.0 - 2023/03/02
 - Development started
 - abc.js v6.1.7 added
