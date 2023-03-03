@@ -15,16 +15,9 @@
 	},
 	"main": "src/extension.js",
 	"activationEvents": [
-		"onCommand:abc.play",
 		"onLanguage:abc"
 	],
 	"contributes": {
-		"commands": [
-			{
-				"command": "abc.showPreview",
-				"title": "ABC: Show Preview"
-			}
-		],
 		"languages": [
 			{
 				"id": "abc",
@@ -34,6 +27,13 @@
 				"extensions": [
 					".abc"
 				]
+			}
+		],
+		"commands": [
+			{
+				"title": "ABC: Show Preview",
+				"command": "abc.showPreview",
+				"when": "previewEnabled"
 			}
 		]
 	}

@@ -1,4 +1,4 @@
-// const abcjs = require("./abcjs")
+const abcjs = require("./abcjs")
 const vscode = require("vscode")
 const uri = { script: "", styles: "", abcjs: "" }
 let ctx, panel
@@ -29,6 +29,19 @@ const registerEvents = () => {
 			updatePanel()
 		})
 	)
+
+	ctx.subscriptions.push(
+		vscode.window.onDidChangeActiveTextEditor(() => {
+			const textEditor = vscode.window.activeTextEditor
+			if (textEditor) {
+				const enabled = textEditor.document.uri.scheme == "file" && isAbc()
+				console.log(enabled)
+				vscode.commands.executeCommand(
+					"setContext", "previewEnabled", enabled
+				)
+			}
+		})
+	)
 }
 
 const showPanel = () => {
@@ -38,7 +51,7 @@ const showPanel = () => {
 }
 
 const updatePanel = () => {
-	if (panel) {
+	if (panel && isAbc()) {
 		const abc = getEditorContent()
 		panel.webview.html = getWebviewContent(abc)
 	}
@@ -87,4 +100,9 @@ const getWebviewContent = (content) => {
 		</body>
 		</html>
 	`
+}
+
+const isAbc = () => {
+	const language = vscode.window.activeTextEditor.document.languageId
+	return language == "abc" || language == "plaintext"
 }
