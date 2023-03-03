@@ -3,6 +3,9 @@
 ## Unreleased
 - Sync selection in preview panel to editor
 
+## 0.2.2 - 2023/03/04
+- Add snippets
+
 ## 0.2.1 - 2023/03/03
 - Fix README
 - Fix CHANGELOG
