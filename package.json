@@ -33,7 +33,7 @@
 			{
 				"title": "ABC: Show Preview",
 				"command": "abc.showPreview",
-				"when": "previewEnabled"
+				"when": "editorLangId == abc"
 			}
 		]
 	}

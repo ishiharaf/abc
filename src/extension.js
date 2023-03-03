@@ -29,19 +29,6 @@ const registerEvents = () => {
 			updatePanel()
 		})
 	)
-
-	ctx.subscriptions.push(
-		vscode.window.onDidChangeActiveTextEditor(() => {
-			const textEditor = vscode.window.activeTextEditor
-			if (textEditor) {
-				const enabled = textEditor.document.uri.scheme == "file" && isAbc()
-				console.log(enabled)
-				vscode.commands.executeCommand(
-					"setContext", "previewEnabled", enabled
-				)
-			}
-		})
-	)
 }
 
 const showPanel = () => {
