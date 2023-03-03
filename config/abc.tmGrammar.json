@@ -3,24 +3,38 @@
 	"patterns": [
 		{ "include": "#header" },
 		{ "include": "#directive" },
-		{ "include": "#comment" }
+		{ "include": "#comment" },
+		{ "include": "#words" },
+		{ "include": "#numbers" },
+		{ "include": "#ties" },
+		{ "include": "#chord" },
+		{ "include": "#double-quoted-string" },
+		{ "include": "#bars" }
 	],
 	"repository": {
 		"header": {
+			"begin": "^[XTABCDFGHILMNOPQRSUVZK]:",
+			"beginCaptures": {
+				"0": { "name": "keyword.other.header.abc" }
+			},
+			"end": "\\n",
 			"patterns": [
 				{
-					"match": "^([XTABCDFGHLMNOPQRSUVZK]:)(.*)",
+					"match": "([a-zA-Z]*)\\s*(=)\\s*([a-zA-Z]*)",
 					"captures": {
-						"1": { "name": "keyword.other.header.abc" },
-						"2": { "name": "string.value.header.abc" }
+						"1": { "name": "variable.parameter.abc" },
+						"2": { "name": "keyword.operator.abc" },
+						"3": { "name": "string.unquoted.abc" }
 					}
-				}
+				},
+				{ "include": "#double-quoted-string" },
+				{ "include": "#comment" }
 			]
 		},
 		"directive": {
 			"patterns": [
 				{
-					"match": "^%%.*",
+					"match": "^%%[^\\s]+",
 					"name": "keyword.control.directive.abc"
 				}
 			]
@@ -28,25 +42,75 @@
 		"comment": {
 			"patterns": [
 				{
-					"begin": "(^[ \\t]+)?(?=%)",
-					"beginCaptures": {
-						"1": {
-							"name": "punctuation.whitespace.comment.leading.abc"
-						}
-					},
-					"end": "(?!\\G)",
-					"patterns": [
-						{
-							"begin": "%",
-							"beginCaptures": {
-								"0": {
-									"name": "punctuation.definition.comment.abc"
-								}
-							},
-							"end": "\\n",
-							"name": "comment.line.number-sign.abc"
-						}
-					]
+					"match": "%[^%].*",
+					"name": "comment.line.percentage.abc"
+				}
+			]
+		},
+		"words": {
+			"patterns": [
+				{
+					"match": "^([Ww]:)(.*)",
+					"captures": {
+						"1": { "name": "keyword.other.words.abc" },
+						"2": { "name": "text.words.abc" }
+					}
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"match": "[0-9]+",
+					"name": "constant.numeric.decimal.abc"
+				}
+			]
+		},
+		"double-quoted-string": {
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.abc"
+				}
+			},
+			"end": "\"",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.abc"
+				}
+			},
+			"name": "string.quoted.double.abc"
+		},
+		"bars": {
+			"patterns": [
+				{
+					"match": ":?\\|[:\\]]?",
+					"name": "keyword.other.bar.abc"
+				}
+			]
+		},
+
+		"ties": {
+			"patterns": [
+				{
+					"match": "\\(",
+					"name": "string.ties.abc"
+				},
+				{
+					"match": "\\)",
+					"name": "string.ties.abc"
+				}
+			]
+		},
+		"chord": {
+			"patterns": [
+				{
+					"match": "\\[",
+					"name": "string.chord.abc"
+				},
+				{
+					"match": "\\]",
+					"name": "string.chord.abc"
 				}
 			]
 		}
