@@ -40,6 +40,13 @@
 				]
 			}
 		],
+		"grammars": [
+			{
+				"language": "abc",
+				"scopeName": "source.abc",
+				"path": "config/abc.tmGrammar.json"
+			}
+		],
 		"commands": [
 			{
 				"title": "ABC: Show Preview",

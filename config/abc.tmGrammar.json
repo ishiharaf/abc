@@ -1,0 +1,54 @@
+{
+	"scopeName": "source.abc",
+	"patterns": [
+		{ "include": "#header" },
+		{ "include": "#directive" },
+		{ "include": "#comment" }
+	],
+	"repository": {
+		"header": {
+			"patterns": [
+				{
+					"match": "^([XTABCDFGHLMNOPQRSUVZK]:)(.*)",
+					"captures": {
+						"1": { "name": "keyword.other.header.abc" },
+						"2": { "name": "string.value.header.abc" }
+					}
+				}
+			]
+		},
+		"directive": {
+			"patterns": [
+				{
+					"match": "^%%.*",
+					"name": "keyword.control.directive.abc"
+				}
+			]
+		},
+		"comment": {
+			"patterns": [
+				{
+					"begin": "(^[ \\t]+)?(?=%)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.comment.leading.abc"
+						}
+					},
+					"end": "(?!\\G)",
+					"patterns": [
+						{
+							"begin": "%",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.comment.abc"
+								}
+							},
+							"end": "\\n",
+							"name": "comment.line.number-sign.abc"
+						}
+					]
+				}
+			]
+		}
+	}
+}
