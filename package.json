@@ -46,6 +46,12 @@
 				"command": "abc.showPreview",
 				"when": "editorLangId == abc"
 			}
+		],
+		"snippets": [
+			{
+				"language": "abc",
+				"path": "config/snippets.json"
+			}
 		]
 	}
 }

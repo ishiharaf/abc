@@ -1,0 +1,55 @@
+{
+	"ABC: Headers": {
+		"prefix": "ABC: Headers",
+		"body": [
+			"X:1",
+			"T:Title",
+			"C:Composer",
+			"L:1/4",
+			"M:4/4",
+			"Q:\"Allegro\"1/4=100",
+			"R:Rhythm",
+			"K:C",
+			"z4"
+		],
+		"description": "Common header fields for ABC file."
+	},
+	"ABC: Headers (Minimal)": {
+		"prefix": "ABC: Headers (Minimal)",
+		"body": [
+			"X:1",
+			"T:Title",
+			"K:C",
+			"z4"
+		],
+		"description": "Minimal header fields for ABC file."
+	},
+	"ABC: Headers (Complete)": {
+		"prefix": "ABC: Headers (Complete)",
+		"body": [
+			"X:1",
+			"T:Title",
+			"A:Area",
+			"B:Book",
+			"C:Composer",
+			"D:Discography",
+			"F:File Name",
+			"G:Group",
+			"H:History",
+			"L:1/4",
+			"M:4/4",
+			"N:Notes",
+			"O:Origin",
+			"P:Part",
+			"Q:\"Allegro\"1/4=100",
+			"R:Rhythm",
+			"S:Source",
+			"U:User Defined",
+			"V:Voice",
+			"Z:Transcription Notes/Copyright",
+			"K:C",
+			"z4"
+		],
+		"description": "Complete header fields for ABC file."
+	}
+}
