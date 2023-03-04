@@ -6,7 +6,7 @@
 		{ "include": "#comment" },
 		{ "include": "#strings" },
 		{ "include": "#information" },
-		{ "include": "#numbers" },
+		{ "include": "#number" },
 		{ "include": "#blocks" },
 		{ "include": "#bars" }
 	],
@@ -54,7 +54,7 @@
 				}
 			]
 		},
-		"numbers": {
+		"number": {
 			"patterns": [
 				{
 					"match": "[0-9]+",
