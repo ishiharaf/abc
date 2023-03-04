@@ -4,31 +4,29 @@
 		{ "include": "#header" },
 		{ "include": "#directive" },
 		{ "include": "#comment" },
-		{ "include": "#double-quoted-string" },
-		{ "include": "#decoration" },
-		{ "include": "#words" },
+		{ "include": "#strings" },
+		{ "include": "#information" },
 		{ "include": "#numbers" },
-		{ "include": "#ties" },
-		{ "include": "#chord" },
+		{ "include": "#blocks" },
 		{ "include": "#bars" }
 	],
 	"repository": {
 		"header": {
-			"begin": "^[XTABCDFGHILMNOPQRSUVZK]:",
+			"begin": "^[XTABCDFGHILmMNOPQRSUVZK]:",
 			"beginCaptures": {
 				"0": { "name": "keyword.other.header.abc" }
 			},
 			"end": "\\n",
 			"patterns": [
 				{
-					"match": "([a-zA-Z]*)\\s*(=)\\s*([a-zA-Z]*)",
+					"match": "(\\S+)\\s*(=)\\s*(\\S+)",
 					"captures": {
 						"1": { "name": "variable.parameter.abc" },
 						"2": { "name": "keyword.operator.abc" },
 						"3": { "name": "string.unquoted.abc" }
 					}
 				},
-				{ "include": "#double-quoted-string" },
+				{ "include": "#strings" },
 				{ "include": "#comment" }
 			]
 		},
@@ -48,14 +46,11 @@
 				}
 			]
 		},
-		"words": {
+		"information": {
 			"patterns": [
 				{
-					"match": "^([Ww]:)(.*)",
-					"captures": {
-						"1": { "name": "keyword.other.words.abc" },
-						"2": { "name": "text.words.abc" }
-					}
+					"match": "^[Wwr]:",
+					"name": "keyword.other.information.abc"
 				}
 			]
 		},
@@ -67,66 +62,94 @@
 				}
 			]
 		},
-		"double-quoted-string": {
-			"begin": "\"",
-			"beginCaptures": {
-				"0": {
-					"name": "punctuation.definition.string.begin.abc"
+		"strings": {
+			"patterns": [
+				{
+					"comment": "double quoted strings",
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.abc"
+						}
+					},
+					"end": "\"",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.abc"
+						}
+					},
+					"name": "string.quoted.double.abc"
+				},
+				{
+					"comment": "decorations",
+					"begin": "!",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.abc"
+						}
+					},
+					"end": "!",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.abc"
+						}
+					},
+					"name": "string.quoted.other.abc"
 				}
-			},
-			"end": "\"",
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.definition.string.end.abc"
-				}
-			},
-			"name": "string.quoted.double.abc"
+			]
 		},
-		"decoration": {
-			"begin": "!",
-			"beginCaptures": {
-				"0": {
-					"name": "punctuation.definition.string.begin.abc"
+		"blocks": {
+			"patterns": [
+				{
+					"comment": "ties",
+					"begin": "\\(",
+					"beginCaptures": {
+						"0": { "name": "string.ties.begin.abc" }
+					},
+					"end": "\\)",
+					"endCaptures": {
+						"0": {
+							"name": "string.ties.end.abc"
+						}
+					}
+				},
+				{
+					"comment": "chords",
+					"begin": "(?<!\\|)\\[(?!\\|)",
+					"beginCaptures": {
+						"0": { "name": "string.chords.begin.abc" }
+					},
+					"end": "(?<!\\|)\\](?!\\|)",
+					"endCaptures": {
+						"0": {
+							"name": "string.chords.end.abc"
+						}
+					}
+				},
+				{
+					"comment": "grace notes",
+					"begin": "\\{",
+					"beginCaptures": {
+						"0": { "name": "string.grace.begin.abc" }
+					},
+					"end": "\\}",
+					"endCaptures": {
+						"0": {
+							"name": "string.grace.end.abc"
+						}
+					}
 				}
-			},
-			"end": "!",
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.definition.string.end.abc"
-				}
-			},
-			"name": "string.quoted.other.abc"
+			]
 		},
 		"bars": {
 			"patterns": [
+                {
+                    "match": "[\\[\\]]?:?\\|+:?[\\[\\]]?(?!\")\\d*[-\\.,]?\\d*:?|::",
+                    "name": "keyword.other.bar.abc"
+                },
 				{
-					"match": ":?\\|[:\\]]?",
+					"match": "\\[\".+?\"",
 					"name": "keyword.other.bar.abc"
-				}
-			]
-		},
-
-		"ties": {
-			"patterns": [
-				{
-					"match": "\\(",
-					"name": "string.ties.abc"
-				},
-				{
-					"match": "\\)",
-					"name": "string.ties.abc"
-				}
-			]
-		},
-		"chord": {
-			"patterns": [
-				{
-					"match": "\\[",
-					"name": "string.chord.abc"
-				},
-				{
-					"match": "\\]",
-					"name": "string.chord.abc"
 				}
 			]
 		}
