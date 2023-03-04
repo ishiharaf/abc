@@ -4,11 +4,16 @@ An extension to preview and play music written in ABC notation inside Visual Stu
 
 You can learn more about ABC on its [official website](https://abcnotation.com/).
 
+## Screenshots
+Dark Theme
+![Dark+ Theme](https://raw.githubusercontent.com/ishiharaf/abc/main/media/dark+.png)
+
+Monokai Theme
+![Monokai Theme](https://raw.githubusercontent.com/ishiharaf/abc/main/media/monokai.png)
+
 ## Usage
 
-Open the command palette and type `ABC` and search for the `ABC: Show Preview` command. It'll open a new panel with a preview of the ABC file. Clicking on the `⏵` icon will play the file.
-
-![Screenshot](https://raw.githubusercontent.com/ishiharaf/abc/main/media/ss.png)
+Open the command palette and type `ABC` to search for the `ABC: Show Preview` command. It'll open a new panel with a preview of the ABC file. Clicking on the `⏵` icon will play the file.
 
 Snippets are available to aid with the creation of new files. Type `ABC` and select one of the snippets. For example, this is the `ABC: Headers (Minimal)`:
 
