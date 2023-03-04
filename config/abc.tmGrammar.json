@@ -19,7 +19,7 @@
 			"end": "\\n",
 			"patterns": [
 				{
-					"match": "(\\S+)\\s*(=)\\s*(\\S+)",
+					"match": "(\\S+)\\s*(=)\\s*(\".+?\"|\\S+)",
 					"captures": {
 						"1": { "name": "variable.parameter.abc" },
 						"2": { "name": "keyword.operator.abc" },
