@@ -5,6 +5,9 @@
 
 ## 0.2.2 - 2023/03/04
 - Add snippets
+- Add syntax highlighting
+- Update screenshots
+- Update README
 
 ## 0.2.1 - 2023/03/03
 - Fix README
