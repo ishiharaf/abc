@@ -2,7 +2,7 @@
 	"name": "abc-tools",
 	"displayName": "ABC Tools",
 	"description": "Preview and play ABC files in Visual Studio Code",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"license": "SEE LICENSE IN LICENSE.md",
 	"publisher": "ishiharaf",
 	"author": {
