@@ -1,7 +1,7 @@
-const abcjs = require("./lib/abcjs")
 const vscode = require("vscode")
 const fs = require("fs")
 const path = require("path")
+const abcjs = require("./lib/abcjs")
 const uri = { script: "", styles: "", abcjs: "" }
 let ctx, panel
 
@@ -19,15 +19,15 @@ module.exports = {
 }
 
 const registerCommands = () => {
-	const show = vscode.commands.registerCommand(
-		"abc.showPreview", () => showPanel()
-	)
-	ctx.subscriptions.push(show)
-
 	const create = vscode.commands.registerCommand(
 		"abc.createNew", () => createMidi()
-	)
+		)
 	ctx.subscriptions.push(create)
+
+	const show = vscode.commands.registerCommand(
+		"abc.showPreview", () => showPreview()
+	)
+	ctx.subscriptions.push(show)
 }
 
 const registerEvents = () => {
@@ -38,15 +38,9 @@ const registerEvents = () => {
 	)
 }
 
-const showPanel = () => {
-	initializePanel()
-	const abc = getEditorContent()
-	panel.webview.html = getWebviewContent(abc)
-}
-
 const createMidi = () => {
 	const file = getFileName(),
-		  output = getOutputPath() + ".mid"
+		  output = getMidiPath() + ".mid"
 	const abc = getEditorContent()
 	const midi = Buffer.from(
 		abcjs.synth.getMidiFile(
@@ -59,6 +53,12 @@ const createMidi = () => {
 	writeFile(output, midi)
 }
 
+const showPreview = () => {
+	initializePanel()
+	const abc = getEditorContent()
+	panel.webview.html = getWebviewContent(abc)
+}
+
 const updatePanel = () => {
 	if (panel && isAbc()) {
 		const abc = getEditorContent()
@@ -68,7 +68,7 @@ const updatePanel = () => {
 
 const initializePanel = () => {
 	panel = vscode.window.createWebviewPanel(
-        'previewPanel',
+        'abcPreview',
         'Preview',
         vscode.ViewColumn.Beside,
         { enableScripts: true }
@@ -122,7 +122,7 @@ const getFolderName = () => {
 	return path.replace(`${file}.abc`, "")
 }
 
-const getOutputPath = () => {
+const getMidiPath = () => {
 	const file = getFileName()
 	const folder = getFolderName()
 	return path.resolve(folder, file)
@@ -135,7 +135,7 @@ const isAbc = () => {
 
 const openFile = (filename) => {
 	try {
-		return fs.readFileSync(filename).toString()
+		return fs.readFileSync(filename)
 	} catch (err) {
 		if (err) return console.error(err)
 	}
