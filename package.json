@@ -22,12 +22,9 @@
 		"music"
 	],
 	"engines": {
-		"vscode": "^1.74.2"
+		"vscode": "^1.76.0"
 	},
 	"main": "src/extension.js",
-	"activationEvents": [
-		"onLanguage:abc"
-	],
 	"contributes": {
 		"languages": [
 			{
@@ -49,9 +46,24 @@
 		],
 		"commands": [
 			{
-				"title": "ABC: Show Preview",
+				"title": "Create New",
+				"command": "abc.createNew",
+				"category": "ABC",
+				"when": "editorLangId == abc",
+				"icon": {
+					"light": "icons/light/new-file.svg",
+					"dark": "icons/dark/new-file.svg"
+				}
+			},
+			{
+				"title": "Show Preview",
 				"command": "abc.showPreview",
-				"when": "editorLangId == abc"
+				"category": "ABC",
+				"when": "editorLangId == abc",
+				"icon": {
+					"light": "icons/light/preview.svg",
+					"dark": "icons/dark/preview.svg"
+				}
 			}
 		],
 		"snippets": [
@@ -59,6 +71,20 @@
 				"language": "abc",
 				"path": "config/snippets.json"
 			}
-		]
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"when": "resourceLangId == abc",
+					"command": "abc.createNew",
+					"group": "navigation"
+				},
+				{
+					"when": "resourceLangId == abc",
+					"command": "abc.showPreview",
+					"group": "navigation"
+				}
+			]
+		}
 	}
 }
