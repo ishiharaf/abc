@@ -3,6 +3,10 @@
 ## Unreleased
 - Sync selection in preview panel to editor
 
+## 0.2.3 - 2023/03/05
+- Add MIDI output
+- Refactor code
+
 ## 0.2.2 - 2023/03/04
 - Add snippets
 - Add syntax highlighting
