@@ -8,12 +8,12 @@ You can learn more about ABC on its [official website](https://abcnotation.com/)
 Dark Theme
 ![Dark+ Theme](https://raw.githubusercontent.com/ishiharaf/abc/main/media/dark+.png)
 
-Monokai Theme
-![Monokai Theme](https://raw.githubusercontent.com/ishiharaf/abc/main/media/monokai.png)
+Light+ Theme
+![Light+ Theme](https://raw.githubusercontent.com/ishiharaf/abc/main/media/light+.png)
 
 ## Usage
 
-Open the command palette and type `ABC` to search for the `ABC: Show Preview` command. It'll open a new panel with a preview of the ABC file. Clicking on the `⏵` icon will play the file.
+Open the command palette and type `ABC` to search for the `ABC: Show Preview` command. It'll open a new panel with a preview of the ABC file. Clicking on the `⏵` icon will play the file. `ABC: Export MIDI` will export a MIDI file in the current file directory. You can also click the buttons in the editor to call these commands.
 
 Snippets are available to aid with the creation of new files. Type `ABC` and select one of the snippets. For example, this is the `ABC: Headers (Minimal)`:
 
