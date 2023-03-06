@@ -1,8 +1,7 @@
 # Changelog
 
-## Unreleased
-- Sync selection in preview panel to editor
-
+## 0.2.4 - 2023/03/06
+- Fix New File icon
 ## 0.2.3 - 2023/03/05
 - Add MIDI output
 - Refactor code
