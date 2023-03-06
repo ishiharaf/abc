@@ -46,8 +46,8 @@
 		],
 		"commands": [
 			{
-				"title": "Create New",
-				"command": "abc.createNew",
+				"title": "Export MIDI",
+				"command": "abc.exportMidi",
 				"category": "ABC",
 				"when": "editorLangId == abc",
 				"icon": {
@@ -76,7 +76,7 @@
 			"editor/title": [
 				{
 					"when": "resourceLangId == abc",
-					"command": "abc.createNew",
+					"command": "abc.exportMidi",
 					"group": "navigation"
 				},
 				{

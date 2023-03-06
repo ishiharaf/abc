@@ -20,7 +20,7 @@ module.exports = {
 
 const registerCommands = () => {
 	const create = vscode.commands.registerCommand(
-		"abc.createNew", () => createMidi()
+		"abc.exportMidi", () => exportMidi()
 		)
 	ctx.subscriptions.push(create)
 
@@ -38,7 +38,7 @@ const registerEvents = () => {
 	)
 }
 
-const createMidi = () => {
+const exportMidi = () => {
 	const file = getFileName(),
 		  output = getMidiPath() + ".mid"
 	const abc = getEditorContent()
